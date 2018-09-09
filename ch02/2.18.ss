@@ -1,4 +1,6 @@
-#lang scheme
+#lang racket
+
+(provide my-reverse)
 
 ;; (reverse (list 1 4 9 16 25))
 ;; (25 16 9 4 1)
@@ -11,7 +13,7 @@
       r
       (cons (car l) (append (cdr l) r))))
 
-(define (reverse l)
+(define (my-reverse l)
   (define nil '())
   (define (iter tmp l)
     (if (null? l)
@@ -19,4 +21,4 @@
         (iter (cons (car l) tmp) (cdr l))))
   (iter nil l))
 
-(reverse '(1 2 3 4 5))
+;;(my-reverse '(1 2 3 4 5))
