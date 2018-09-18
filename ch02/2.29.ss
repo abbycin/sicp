@@ -40,11 +40,9 @@
 
 ;; c) a mobile is balanced when torque of left branch equal right branchs'
 ;; and so does each sub-branch, write a procedure to check if a mobile is balanced
-
-(define (torque b)
-  (* (branch-length b) (branch-weight b)))
-
 (define (is-balanced mobile)
+  (define (torque b)
+    (* (branch-length b) (branch-weight b)))
   (define (is-branch-balanced b)
   (if (pair? (branch-structure b))
       (is-balanced-impl (branch-structure b))
