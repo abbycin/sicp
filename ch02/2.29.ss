@@ -1,4 +1,4 @@
-#lang racket
+#lang scheme
 
 (define (make-mobile left right)
   (list left right))
@@ -68,3 +68,19 @@
                                           (make-branch 2 1)
                                           (make-branch 1 2)))
                             (make-branch 3 3)))))
+
+
+;; d) replace list with cons in constructors, change selectors to make it work
+(define (make-mobile2 left right)
+  (cons left right))
+
+(define (make-branch2 length structure)
+  (cons length structure))
+
+;; the only modification is right-branch and branch-structure, since cons
+;; require the right must be list
+(define (right-branch mobile)
+  (cdr mobile))
+
+(define (branch-structure branch)
+  (cdr branch))
